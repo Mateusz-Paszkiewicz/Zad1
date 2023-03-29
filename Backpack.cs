@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+
+[assembly: InternalsVisibleTo("Zad1GUI"), InternalsVisibleTo("UnitTestZad1")]
 
 namespace Zad1
 {
@@ -66,16 +69,16 @@ namespace Zad1
                 this._totalWeight = actualWeight;
                 this._totalValue = actualValue;
             }
-            result += "\n Waga: " + this._totalWeight + "\n Wartosc: " + this._totalValue;
+            result += Environment.NewLine + " Waga: " + this._totalWeight + Environment.NewLine + " Wartosc: " + this._totalValue;
             return result;
         }
 
         public override string ToString()
         {
-            string str = "Backpack limit is: " + this.C + " \n";
+            string str = "Backpack limit is: " + this.C + " " + Environment.NewLine;
             for (int i = 0; i < this.items.Count(); i++)
             {
-                str += this.items[i].Value() + " " + this.items[i].Weight() + "\n";
+                str += this.items[i].Value() + " " + this.items[i].Weight() + Environment.NewLine;
             }
             return str;
         }
